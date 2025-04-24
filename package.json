@@ -27,7 +27,7 @@
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
     "concurrently": "^9.1.2",
-    "gsap": "npm:@gsap/business@^3.12.7",
+    "gsap": "^3.12.7",
     "hamo": "1.0.0-dev.6",
     "lenis": "^1.2.3",
     "next": "^15.3.0",
@@ -70,5 +70,9 @@
     "react-dom": "^19.0.0",
     "scheduler": "0.25.0"
   },
-  "trustedDependencies": ["@biomejs/biome", "lefthook", "sharp"]
+  "trustedDependencies": [
+    "@biomejs/biome",
+    "lefthook",
+    "sharp"
+  ]
 }
