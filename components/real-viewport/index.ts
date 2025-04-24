@@ -1,7 +1,7 @@
 'use client'
 
 import { useLayoutEffect } from 'react'
-import { mutate } from 'tempus' // Revert back to named import
+import Tempus from 'tempus' // Import default export as Tempus
 
 //https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
 
@@ -26,7 +26,7 @@ function getScrollbarWidth() {
 }
 
 function onWindowResize() {
-  mutate(() => {
+  Tempus.add(() => { // Use Tempus.add() to schedule the callback
     document.documentElement.style.setProperty(
       '--vw',
       `${document.documentElement.offsetWidth * 0.01}px`

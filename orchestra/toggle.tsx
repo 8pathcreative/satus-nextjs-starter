@@ -1,5 +1,5 @@
 import { type HTMLAttributes, type RefObject, useEffect, useRef } from 'react'
-import mutate from 'tempus' // Corrected import path and syntax
+import Tempus from 'tempus' // Import default export as Tempus
 import Orchestra from './orchestra'
 
 type OrchestraToggleProps = Omit<
@@ -24,7 +24,7 @@ export function OrchestraToggle({
     Orchestra.add(id, children)
     const toggle = Orchestra.toggles.find((toggle) => toggle.id === id)
 
-    mutate(() => {
+    Tempus.add(() => { // Use Tempus.add() to schedule the callback
       if (toggle?.domElement) {
         elementRef.current.appendChild(toggle.domElement)
         if (buttonRef?.current) {
@@ -35,7 +35,7 @@ export function OrchestraToggle({
 
     return () => {
       Orchestra?.remove(id)
-      mutate(() => {
+      Tempus.add(() => { // Use Tempus.add() to schedule the callback
         toggle?.domElement.remove()
         if (buttonRef?.current) {
           buttonRef.current = null
