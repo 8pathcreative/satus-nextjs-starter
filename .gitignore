@@ -1,1 +1,32 @@
+\
+# Dependencies
 node_modules
+
+# Next.js build output
+.next/
+out/
+
+# Turbopack cache
+.turbo/
+
+# TypeScript build cache
+*.tsbuildinfo
+
+# Local environment variables
+.env*.local
+
+# Log files
+*.log
+logs/
+
+# Test coverage
+coverage/
+
+# OS-specific files
+.DS_Store
+
+# IDE configuration
+.vscode/
+
+# Other build outputs (optional but common)
+build/

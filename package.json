@@ -35,6 +35,7 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-use": "^17.6.0",
+    "stats-gl": "^3.6.0",
     "storyblok-js-client": "^6.10.11",
     "storyblok-rich-text-react-renderer": "^2.9.2",
     "tempus": "1.0.0-dev.10",

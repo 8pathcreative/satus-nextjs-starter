@@ -62,6 +62,9 @@ importers:
       react-use:
         specifier: ^17.6.0
         version: 17.6.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      stats-gl:
+        specifier: ^3.6.0
+        version: 3.6.0(three@0.175.0)
       storyblok-js-client:
         specifier: ^6.10.11
         version: 6.10.11
@@ -3243,6 +3246,14 @@ packages:
     peerDependencies:
       '@types/three': '*'
       three: '*'
+
+  stats-gl@3.6.0:
+    resolution: {integrity: sha512-Bpi5nwvC2pls9lcI5sGqAcUqB/2kMYfsR4KoAglXFtY3YUdm7lJFg8FqS7eKKNgg3ruDMNCuwU+uRwPOwJiGnw==}
+    peerDependencies:
+      three: '*'
+    peerDependenciesMeta:
+      three:
+        optional: true
 
   stats.js@0.17.0:
     resolution: {integrity: sha512-hNKz8phvYLPEcRkeG1rsGmV5ChMjKDAWU7/OJJdDErPBNChQXxCo3WZurGpnWc6gZhAzEPFad1aVgyOANH1sMw==}
@@ -6777,6 +6788,10 @@ snapshots:
   stats-gl@2.4.2(@types/three@0.175.0)(three@0.175.0):
     dependencies:
       '@types/three': 0.175.0
+      three: 0.175.0
+
+  stats-gl@3.6.0(three@0.175.0):
+    optionalDependencies:
       three: 0.175.0
 
   stats.js@0.17.0: {}
