@@ -1,5 +1,5 @@
 import { type HTMLAttributes, type RefObject, useEffect, useRef } from 'react'
-import { mutate } from '~/libs/tempus-queue'
+import mutate from 'tempus' // Corrected import path and syntax
 import Orchestra from './orchestra'
 
 type OrchestraToggleProps = Omit<

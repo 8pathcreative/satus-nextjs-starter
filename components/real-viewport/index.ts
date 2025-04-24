@@ -1,7 +1,7 @@
 'use client'
 
 import { useLayoutEffect } from 'react'
-import { mutate } from '~/libs/tempus-queue'
+import { mutate } from 'tempus' // Revert back to named import
 
 //https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
 

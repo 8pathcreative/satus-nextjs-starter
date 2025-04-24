@@ -15,7 +15,7 @@ const APP_NAME = AppData.name
 const APP_DEFAULT_TITLE = 'Satūs'
 const APP_TITLE_TEMPLATE = '%s - Satūs'
 const APP_DESCRIPTION = AppData.description
-const APP_BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
+const APP_BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000' // Added fallback URL
 
 const GTM_ID = process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID || false
 const GA_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS || false

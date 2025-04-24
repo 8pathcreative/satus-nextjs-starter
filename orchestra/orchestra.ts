@@ -5,7 +5,9 @@ import {
 } from 'zustand/middleware'
 import { createStore } from 'zustand/vanilla'
 
-type OrchestraState = Record<string, boolean>
+type OrchestraState = Record<string, boolean> & {
+  isNavOpened?: boolean
+}
 
 const storageKey = 'orchestra'
 const store = createStore<OrchestraState>()(
@@ -14,6 +16,7 @@ const store = createStore<OrchestraState>()(
       () =>
         ({
           webgl: true,
+          isNavOpened: false, // Initialize isNavOpened
         }) as OrchestraState
     ),
     {

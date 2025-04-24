@@ -6,7 +6,7 @@ import type { LenisRef, LenisProps as ReactLenisProps } from 'lenis/react'
 import { ReactLenis, useLenis } from 'lenis/react'
 import { useEffect, useRef } from 'react'
 import { useTempus } from 'tempus/react'
-import { useStore } from '~/libs/store'
+import { useOrchestra } from '~/orchestra'
 
 interface LenisProps extends Omit<ReactLenisProps, 'ref'> {
   root: boolean
@@ -15,7 +15,7 @@ interface LenisProps extends Omit<ReactLenisProps, 'ref'> {
 
 export function Lenis({ root, options }: LenisProps) {
   const lenisRef = useRef<LenisRef>(null)
-  const isNavOpened = useStore((state) => state.isNavOpened)
+  const { isNavOpened } = useOrchestra()
   const lenis = useLenis()
 
   useTempus((time: number) => {
