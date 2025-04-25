@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
 import type { Metadata, Viewport } from 'next'
 import type { PropsWithChildren } from 'react'
@@ -84,16 +85,50 @@ export const viewport: Viewport = {
 }
 
 export default function Layout({ children }: PropsWithChildren) {
+  const [theme, setTheme] = useState('light');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const stored = localStorage.getItem('theme');
+      if (stored) setTheme(stored);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    }
+  }, [theme]);
+
   return (
     <html
       lang="en"
       dir="ltr"
       className={fontsClassName}
-      // NOTE: This is due to the data-theme attribute being set which causes hydration errors
       suppressHydrationWarning
+      data-theme={theme}
     >
       {GTM_ID && <GoogleTagManager gtmId={GTM_ID} />}
       <body>
+        {/* Theme Toggle Button */}
+        <button
+          aria-label="Toggle theme"
+          onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+          style={{
+            position: 'fixed',
+            top: 16,
+            right: 16,
+            zIndex: 50,
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+            fontSize: 24,
+            color: 'var(--color-text, #222)'
+          }}
+        >
+          {theme === 'light' ? '🌙' : '☀️'}
+        </button>
         <RealViewport />
         {children}
         <OrchestraTools />
@@ -103,5 +138,5 @@ export default function Layout({ children }: PropsWithChildren) {
       </body>
       {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
     </html>
-  )
+  );
 }

@@ -1,0 +1,55 @@
+.threadContainer {
+    /* Define CSS Variables */
+    --thread-color-1: rgba(252, 252, 252, 0.08); /* Adjust thread color and opacity */
+    --thread-color-2: rgb(229, 29, 56); /* Adjust background color */
+    --thread-size: 35px; /* Adjust spacing */
+
+    width: 100%; /* Or specific dimensions */
+    min-height: 100vh; /* Example height */
+    position: relative; /* Needed for positioning content on top */
+    overflow: hidden; /* Hide overflow if needed */
+
+    /* Apply background */
+    background-color: var(--thread-color-2);
+    background-image:
+        /* Vertical lines */
+        linear-gradient(
+            90deg,
+            var(--thread-color-1) 1px,
+            transparent 1px calc(var(--thread-size) - 1px),
+            var(--thread-color-1) var(--thread-size)
+        ),
+        /* Horizontal lines */
+        linear-gradient(
+            180deg,
+            var(--thread-color-1) 1px,
+            transparent 1px calc(var(--thread-size) - 1px),
+            var(--thread-color-1) var(--thread-size)
+        ),
+        /* Intersection dots */
+        radial-gradient(
+            circle at center,
+            var(--thread-color-1) 1px,
+            transparent 1.5px /* Slightly larger transparent area for dot */
+        );
+    background-size:
+        var(--thread-size) var(--thread-size), /* Line pattern size */
+        var(--thread-size) var(--thread-size), /* Line pattern size */
+        var(--thread-size) var(--thread-size); /* Dot pattern size */
+
+    /* Optional: Add subtle animation if desired */
+    /* animation: thread-flow 50s linear infinite; */
+}
+
+/* Optional animation keyframes if you uncomment the animation property above */
+/*
+@keyframes thread-flow {
+    0% { background-position: 0 0, 0 0, 0 0; }
+    100% {
+        background-position:
+            calc(var(--thread-size) * 2) calc(var(--thread-size) * 2),
+            calc(var(--thread-size) * -1) calc(var(--thread-size) * -1),
+            0 0;
+    }
+}
+*/

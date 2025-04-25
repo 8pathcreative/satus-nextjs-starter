@@ -8,7 +8,7 @@ function validatePixels(pixels, device) {
     throw new Error(`Invalid pixel value: ${pixels}`)
   }
   if (screens[device].width === 0 || screens[device].height === 0) {
-    throw new Error(`Screen ${device} dimensions cannot be zero`)
+    throw new Error(`Scrxeen ${device} dimensions cannot be zero`)
   }
   return numPixels
 }
